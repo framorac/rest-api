@@ -1,7 +1,7 @@
 {
   "name": "rest-api-integracion",
   "version": "1.0.0",
-  "description": "Proyecto final ramo INS7501 DUOC UC 2019",
+  "description": "Proyecto examen final ramo INS7501 DUOC UC 2019",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

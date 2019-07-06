@@ -56,6 +56,37 @@ app.post('/api/v1/habitaciones/agregar', (req, res) => {
             res.send(JSON.stringify({ "status": 200, "mensaje": "registro correcto"}));
         });
     }
+
+    console.log(query.sql);
+});
+
+/**
+ * Cotizar Habitacion
+ */
+app.post('/api/v1/habitaciones/cotizar', (req, res) => {
+    let idHabitacion = req.body.idHabitacion;
+    let cantidadNoches = req.body.cantidadNoches;
+
+    let sqlFinder = 'SELECT * FROM habitaciones WHERE idHabitacion='+conn.escape(idHabitacion);
+
+    let query = conn.query(sqlFinder, (err, results, fields) => {
+        if (err) throw error;
+
+        for(i=0;i<results.length; i++){
+            let cc = results[i].cantidadCamas;
+            let cn = results[i].valorNoche;
+            let resultado = cc * cn * cantidadNoches;
+
+            res.send(JSON.stringify({ "status": 200, "mensaje": resultado})); 
+        }
+    });
+});
+
+/**
+ * Desactivar Habitacion
+ */
+app.post('/api/v1/habitaciones/desactivar', (req, res) => {
+    
 });
 
 
