@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "a42d9378-a681-493b-929b-f105df6744f3",
+		"name": "Servicios habitaciones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Habitaciones Disponibles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/habitaciones/disponibles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"habitaciones",
+						"disponibles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Habitacion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cantidadCamas\": 2,\n\t\"valorNoche\": 25000,\n\t\"isDisponible\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/habitaciones/agregar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"habitaciones",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cotizar Habitacion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idHabitacion\": 11,\n    \"cantidadNoches\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/habitaciones/cotizar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"habitaciones",
+						"cotizar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deshabilitar Habitacion",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idHabitacion\": 1,\n\t\"isDisponible\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/habitaciones/desactivar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"habitaciones",
+						"desactivar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

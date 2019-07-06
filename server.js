@@ -51,13 +51,12 @@ app.post('/api/v1/habitaciones/agregar', (req, res) => {
         res.send(JSON.stringify({ "status": "error", "mensaje": "Valor por noche debe ser mayor a cero"}));
     } else {
         let sql = "INSERT INTO habitaciones SET ?";
+
         let query = conn.query(sql, data, (err, results) => {
             if (err) throw err;
             res.send(JSON.stringify({ "status": 200, "mensaje": "registro correcto"}));
         });
     }
-
-    console.log(query.sql);
 });
 
 /**
@@ -85,10 +84,18 @@ app.post('/api/v1/habitaciones/cotizar', (req, res) => {
 /**
  * Desactivar Habitacion
  */
-app.post('/api/v1/habitaciones/desactivar', (req, res) => {
-    
-});
+app.put('/api/v1/habitaciones/desactivar', (req, res) => {
+    let idHabitacion = req.body.idHabitacion;
+    let isDisponible = (req.body.isDisponible == false) ? 0:1;
+    let sql = 'UPDATE habitaciones SET isDisponible=? WHERE idHabitacion=?';
 
+    let query = conn.query(sql, [isDisponible,idHabitacion], (err, results) => {
+        if (err) throw error;
+        if (results.affectedRows > 0) {
+            res.send(JSON.stringify({ "status": "exito", "mensaje": 1}));
+        }
+    });
+});
 
 /**
  * Configura Puerto del servidor
