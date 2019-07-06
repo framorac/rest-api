@@ -3,8 +3,8 @@
 Proyecto final/examen INS7501 DUOC UC, desarrollado en NodeJS y Motor de Base de Datos MySQL/MariaDB.
 
 * Versiones de software
-** NodeJS 10 `10.16.0 LTS`
-** MariaDB `10.4`
+    1. NodeJS 10 `10.16.0 LTS`
+    2. MariaDB `10.4`
 
 Para probar seguir los siguientes pasos:
 
